@@ -50,11 +50,6 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
    Links
    ========================================================================== */
 
-a { color: #00e; }
-a:visited { color: #551a8b; }
-a:hover { color: #06e; }
-a:focus { outline: thin dotted; }
-
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
 
@@ -81,7 +76,7 @@ mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
 pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
 
 /* Improve readability of pre-formatted text in all browsers */
-pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+pre { white-space: pre; }
 
 q { quotes: none; }
 q:before, q:after { content: ""; content: none; }
@@ -215,32 +210,309 @@ td { vertical-align: top; }
 
 
 /* ==|== primary styles =====================================================
-   Author:
+   Author: Mike van Rossum
    ========================================================================== */
 
+.clear {
+	clear:both;
+	overflow:hidden;
+}
+
+html {
+	overflow-y: scroll;
+	font: 0.81em helvetica;
+	background-color:#84888b;
+	color:#f4f4f2;
+	line-height:1.5em;
+	text-align:justify;
+	padding-bottom:3em;
+}
+
+a {
+	color:#f4f4f2;
+	border-style: solid;
+	border-color: #f4f4f2;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border-width: 0 0 1px 0;
+	text-decoration:none;
+}
+
+/* IE 6 bugs */
+.lt-ie7 #container {
+	
+}
+
+#container {
+	width:825px;
+	margin:25px auto 0;
+	overflow:auto;
+}
+
+#left {
+	width:150px;
+	float:left;
+	text-align:right;
+}
+
+#logo {
+	display:block;
+	margin-bottom:50px;
+}
+
+#right {
+	width:675px;
+	float:left;
+}
+/*
+		NAV
+*/
+#nav {
+	padding:0 0 50px 50px;
+	overflow:hidden;
+	height:100px;
+}
+
+#nav li {
+	float:left;
+	width:100px;
+	padding-top:40px;
+}
+
+/*
+		CONTENT
+*/
+
+#content {
+	overflow:hidden;
+	padding-left:50px;
+}
+
+#main {
+	margin-bottom: 2.5em;
+	overflow:hidden;
+}
+
+h1 {
+	font-size:2.25em;
+	margin:0 0 1.56em;
+}
+
+h2 {
+	font-size:1.43em;
+	margin:1.56em 0;
+}
+
+#content .left {
+	width:100px;
+	float:left;
+}
+
+#content .right {
+	width: 525px;
+	float:left;
+}
+
+.right p:nth-child(1) {
+	margin-top:0;
+}
+
+pre {
+	overflow: auto;
+	font-family: monaco;
+	font-size: .9em;
+	padding: 25px;
+	background-color:#343831;
+}
+
+/*
+		COMMENTFORM
+*/
+
+#commentForm {
+	margin-bottom:3em;
+	width: 525px;
+	overflow:hidden;
+}
+
+#commentForm .right {
+	width: 425px;
+}
+
+/* IE 8 bugs */
+.lt-ie9 #commentForm .right {
+	width:auto;
+}
+.lt-ie9 #content .comment .right {
+	width:425px;
+}
+/* IE 7 bugs */
+.lt-ie8 #commentForm .right .input,
+.lt-ie8 #commentForm .right textarea {
+	background-color:white;
+}
+
+#commentForm .left label {
+	float:right;
+	display:block;
+	clear:right;
+	margin-bottom:10px;
+}
+
+#commentForm .right .input,
+#commentForm .right textarea {
+	float:left;
+	display:block;
+	clear:left;
+	margin-left:50px;
+	width:300px;
+	border:1px solid #aeb1b2;
+	background-color:transparent;
+	margin-bottom:10px;
+	resize: none; 
+	color:#f4f4f2;
+}
+
+#commentForm .right textarea {
+	height: 100px;
+}
 
 
+#commentForm input.submit {
+	display:block;
+	clear:left;
+	float:left;
+	background-color:transparent;
+	margin-left:50px;
+	border:0;
+	color:#f4f4f2;
+	padding:0;
+}
+
+.comment h1 {
+	font-size:1em;
+}
 
 
+/* list page */
 
+ul#main {
+	margin:0;
+	padding:0;
+}
 
+ul#main li {
+	list-style-type:none;
+	margin-bottom:2em;
+}
 
+#main .date {
+	width:100px;
+	float:left;
+}
 
+#main .type {
+	width:50px;
+	float:left;
+}
 
+#main .type.dateless {
+	padding-left:100px;
+}
 
+#main .content {
+	float:left;
+	width:475px;
+}
 
+ul#main h2 {
+	font-size:1em;
+	margin:0 0 1em 0;
+}
 
-
-
+ul#main p {
+	margin:0;
+}
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
-   This example overrides the primary ('mobile first') styles
+   This example overrides the primary ('mobile last') styles
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 480px) {
+	
+	html {
+		font-size:1.5em;
+	}
+	
+	#container {
+		width:480px;
+		overflow:hidden;
+		margin:10px auto;
+	}
+	
+	#left {
+		float:none;
+		margin:auto;
+		width:100px;
+	}
+	
+	#left p {
+		display:none;
+	}
+	
+	#nav {
+		padding:0;
+		height:50px
+	}
+	
+	#nav li {
+		width:25%;
+		padding:0;
+		text-align:center;
+	}
+	
+	#right {
+		width:100%;
+	}
+	
+	#content {
+		padding:0 .8em;
+	}
+	
+	#main {
+		margin-bottom:1em;
+	}
+	
+	#content #main > .left,
+	#content #main > .right {
+		float:none;
+		width:100%;
+	}
+	
+	#main > .left {
+		margin-bottom:1em;
+	}
+	
+	#content > .right p {
+		margin:1em;
+	}
+	
+	h1 {
+		text-align:left;
+		font-size:1.75em;
+	}
+	
+	.comment {
+		border-top:1px solid #f4f4f2;
+		padding-top:.8em;
+		overflow:hidden;
+	}
+	
+	.comment:nth-child(1) {
+		border:none;
+	}
 }
 
 

@@ -27,7 +27,7 @@ function lazyload($class) {
 	
 	$len = sizeof($dirs);
 	for($i = 0; $i < $len; ++$i) {
-		$file = SBASE . $dirs[$i]  . lcfirst($class) . '.php';
+		$file = ABSOLUTE_BASE . $dirs[$i]  . lcfirst($class) . '.php';
 		if(file_exists($file)) {
 			require_once $file;
 			return;

@@ -218,14 +218,23 @@ td { vertical-align: top; }
 	overflow:hidden;
 }
 
+.center {
+	text-align:center;
+}
+
 html {
 	overflow-y: scroll;
 	font: 0.81em helvetica;
 	background-color:#84888b;
-	color:#f4f4f2;
+	color:white;
 	line-height:1.5em;
 	text-align:justify;
-	padding-bottom:3em;
+}
+
+body {
+	width:500px;
+	margin:auto;
+	overflow:hidden;
 }
 
 a {
@@ -238,45 +247,34 @@ a {
 	text-decoration:none;
 }
 
-/* IE 6 bugs */
-.lt-ie7 #container {
-	
-}
-
-#container {
-	width:825px;
-	margin:25px auto 0;
-	overflow:auto;
-}
-
-#left {
-	width:150px;
-	float:left;
-	text-align:right;
-}
-
-#logo {
-	display:block;
-	margin-bottom:50px;
-}
-
-#right {
-	width:675px;
-	float:left;
-}
 /*
 		NAV
 */
 #nav {
-	padding:0 0 50px 50px;
 	overflow:hidden;
-	height:100px;
+	height:75px;
 }
 
 #nav li {
 	float:left;
-	width:100px;
-	padding-top:40px;
+	width:150px;
+	padding-top:10px;
+}
+
+#nav li:nth-child(4) {
+	width:50px;
+}
+
+#logo {
+	display:block;
+	margin-left:200px;
+}
+
+#about {
+	margin-top:50px;
+	height:90px;
+	border-bottom:1px solid #cbcbcb;
+	margin-bottom:70px;
 }
 
 /*
@@ -285,12 +283,13 @@ a {
 
 #content {
 	overflow:hidden;
-	padding-left:50px;
+	padding:0;
+	margin:0;
 }
 
-#main {
-	margin-bottom: 2.5em;
-	overflow:hidden;
+#content > li {
+	padding:1.2em 0;
+	list-style-type:none;
 }
 
 h1 {
@@ -299,223 +298,112 @@ h1 {
 }
 
 h2 {
-	font-size:1.43em;
-	margin:1.56em 0;
+	font-size:1em;
+	margin:1.16em 0;
 }
 
-#content .left {
+.longPost h2 {
+	font-size:1.5em;
+}
+
+.date {
 	width:100px;
 	float:left;
 }
 
-#content .right {
-	width: 525px;
-	float:left;
+ul#content h2 {
+	margin-top:0;
 }
 
-.right p:nth-child(1) {
+.body {
 	margin-top:0;
+	margin-left:0;
+	width:400px;
+	float:left;
+	margin-left:100px;
+}
+
+.body.titleless {
+	margin-left:0;
+}
+
+#content > .dateless {
+	padding-left:100px;
+}
+
+#content > .dateless p {
+	margin-left:0;
 }
 
 pre {
 	overflow: auto;
 	font-family: monaco;
 	font-size: .9em;
-	padding: 25px;
+	padding: 20px 15px;
 	background-color:#343831;
 }
 
-/*
-		COMMENTFORM
-*/
+#footer {
+	border-top:1px solid #cbcbcb;
+	margin: 70px 0 10px;
+}
 
-#commentForm {
-	margin-bottom:3em;
-	width: 525px;
+code {
+	background:#343831;
+	padding: .05em .4em;
+}
+
+blockquote {
+	border-left: 2px solid #cbcbcb;
+	margin: 4px 0;
+	padding: 3px 0 3px 10px;
+	text-align: justify;
+	line-height: 1.4em;
+	font-style: italic;
+}
+
+blockquote p {
+	margin:.2em 0;
+}
+
+#editPost {
 	overflow:hidden;
+	margin-top:2em;
 }
 
-#commentForm .right {
-	width: 425px;
-}
-
-/* IE 8 bugs */
-.lt-ie9 #commentForm .right {
-	width:auto;
-}
-.lt-ie9 #content .comment .right {
-	width:425px;
-}
-/* IE 7 bugs */
-.lt-ie8 #commentForm .right .input,
-.lt-ie8 #commentForm .right textarea {
-	background-color:white;
-}
-
-#commentForm .left label {
-	float:right;
-	display:block;
-	clear:right;
-	margin-bottom:10px;
-}
-
-#commentForm .right .input,
-#commentForm .right textarea {
-	float:left;
-	display:block;
-	clear:left;
-	margin-left:50px;
-	width:300px;
-	border:1px solid #aeb1b2;
-	background-color:transparent;
-	margin-bottom:10px;
-	resize: none; 
-	color:#f4f4f2;
-}
-
-#commentForm .right textarea {
-	height: 100px;
-}
-
-
-#commentForm input.submit {
-	display:block;
-	clear:left;
-	float:left;
-	background-color:transparent;
-	margin-left:50px;
-	border:0;
-	color:#f4f4f2;
-	padding:0;
-}
-
-.comment h1 {
-	font-size:1em;
-}
-
-
-/* list page */
-
-ul#main {
-	margin:0;
-	padding:0;
-}
-
-ul#main li {
-	list-style-type:none;
-	margin-bottom:2em;
-}
-
-#main .date {
+#editPost label {
 	width:100px;
+	clear:both;
+	display:block;
 	float:left;
 }
 
-#main .type {
-	width:50px;
-	float:left;
+#editPost input {
+	width:394px;
+	margin-bottom:12px;
+	clear:both;
 }
 
-#main .type.dateless {
-	padding-left:100px;
+#editPost textarea {
+	clear:both;
+	width: 394px;
+	height: 110px;
+	margin-bottom: 10px;
 }
 
-#main .content {
-	float:left;
-	width:475px;
+#editPost .ro {
+	color:grey;
 }
 
-ul#main h2 {
-	font-size:1em;
-	margin:0 0 1em 0;
+#editPost .submit {
+	width: 100px;
+	margin-left:100px;
 }
 
-ul#main p {
-	margin:0;
+#editPost select,
+#editPost .select {
+	margin-bottom:15px;
 }
-
-/* ==|== media queries ======================================================
-   EXAMPLE Media Query for Responsive Design.
-   This example overrides the primary ('mobile last') styles
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (max-width: 480px) {
-	
-	html {
-		font-size:1.5em;
-	}
-	
-	#container {
-		width:480px;
-		overflow:hidden;
-		margin:10px auto;
-	}
-	
-	#left {
-		float:none;
-		margin:auto;
-		width:100px;
-	}
-	
-	#left p {
-		display:none;
-	}
-	
-	#nav {
-		padding:0;
-		height:50px
-	}
-	
-	#nav li {
-		width:25%;
-		padding:0;
-		text-align:center;
-	}
-	
-	#right {
-		width:100%;
-	}
-	
-	#content {
-		padding:0 .8em;
-	}
-	
-	#main {
-		margin-bottom:1em;
-	}
-	
-	#content #main > .left,
-	#content #main > .right {
-		float:none;
-		width:100%;
-	}
-	
-	#main > .left {
-		margin-bottom:1em;
-	}
-	
-	#content > .right p {
-		margin:1em;
-	}
-	
-	h1 {
-		text-align:left;
-		font-size:1.75em;
-	}
-	
-	.comment {
-		border-top:1px solid #f4f4f2;
-		padding-top:.8em;
-		overflow:hidden;
-	}
-	
-	.comment:nth-child(1) {
-		border:none;
-	}
-}
-
-
 
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.

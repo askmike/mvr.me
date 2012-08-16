@@ -1,24 +1,34 @@
 <?php
 
+// server paths
 define( 'BASE', substr($_SERVER['PHP_SELF'],0,-9) );
 define( 'ABSOLUTE_BASE', $_SERVER['DOCUMENT_ROOT'] . BASE );
+
+//site paths
+define( 'DOMAIN', $_SERVER['HTTPS'] ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'] );
+define( 'SITE', DOMAIN . BASE );
 
 require 'core/lazyloading.php';
 require '/config/mvr.me/config.php';
 
-Registery::set( 'starttime', microtime(true) );
+date_default_timezone_set( 'Europe/Amsterdam' );
 
-// some stuff I need everywhere
-date_default_timezone_set(' Europe/Amsterdam' );
+$request =  $_GET['r'];
+
+$requestHandler = new Request;
+$requestHandler->store( $request, $requestHandler->parse( $request ));
 
 define( 'LIBS', SBASE . 'libs/' );
 define( 'IMG', BASE . 'static/img/' );
-define('MODIFIED_TIME', date("F d, Y \a\\t H:i:s", filemtime( ABSOLUTE_BASE . 'index.php')) );
 
-ini_set('session.use_trans_sid', 0);
-ini_set('session.use_only_cookies', 1);
+ini_set( 'session.use_trans_sid', 0 );
+ini_set( 'session.use_only_cookies', 1 );
 session_start();
 
-require 'views/index.html';
+// start it up
+$requestHandler->route();
+
+// break it down
+Database::get()->kill();
 
 ?>

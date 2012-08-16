@@ -4,7 +4,9 @@ require '/config/mvr.me/config.php';
 
 // server paths
 if(!defined('BASE')) define( 'BASE', substr($_SERVER['PHP_SELF'],0,-9) );
-define( 'ABSOLUTE_BASE', $_SERVER['DOCUMENT_ROOT'] . BASE );
+
+define( 'PHPBASE', substr($_SERVER['PHP_SELF'],0,-9) );
+define( 'ABSOLUTE_BASE', $_SERVER['DOCUMENT_ROOT'] . PHPBASE );
 
 //site paths
 define( 'DOMAIN', $_SERVER['HTTPS'] ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'] );

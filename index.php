@@ -1,7 +1,9 @@
 <?php
 
+require '/config/mvr.me/config.php';
+
 // server paths
-define( 'BASE', substr($_SERVER['PHP_SELF'],0,-9) );
+if(!defined('BASE')) define( 'BASE', substr($_SERVER['PHP_SELF'],0,-9) );
 define( 'ABSOLUTE_BASE', $_SERVER['DOCUMENT_ROOT'] . BASE );
 
 //site paths
@@ -9,7 +11,6 @@ define( 'DOMAIN', $_SERVER['HTTPS'] ? 'https://' : 'http://' . $_SERVER['SERVER_
 define( 'SITE', DOMAIN . BASE );
 
 require 'core/lazyloading.php';
-require '/config/mvr.me/config.php';
 
 date_default_timezone_set( 'Europe/Amsterdam' );
 

@@ -14,7 +14,7 @@
 	<a class='email' href='https://www.google.nl/search?q=this+is+why+I+need+a+new+browser'>contact me</a>. <!-- js not working -->
 </p>
 </footer>
-<script src="<?= SITE ?>js/main.js"></script>
+<script src="<?= SITE ?>js/script.js"></script>
 <?php if( !empty( $script ) ) { ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?= SITE ?>js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
@@ -22,10 +22,10 @@
 <?php } ?>
 
 <script>
-var _gaq=[['_setAccount','UA-19313599-8'],['_trackPageview']];
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
+	var _gaq=[['_setAccount','UA-19313599-8'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
 </body>
 </html>

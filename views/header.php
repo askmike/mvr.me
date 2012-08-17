@@ -15,7 +15,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php if( !empty($title) ) { ?>
-	<title><?= $title . ' &#124; mvr.me' //need html pipe char ?></title>
+	<title><?= $title . ' &#124; mvr.me' ?></title>
 <?php } else { ?>
 	<title>mvr.me</title>
 <?php } ?>
@@ -38,5 +38,5 @@
 	<p id='about'>
 		Hello, I am Mike van Rossum. I'm from Amsterdam and I'm currently studying 
 		<a href='http://www.cmd-amsterdam.nl/english/'>CMD</a> where I focus on coding. I also work at <a href='http://mobypicture.com/'>Mobypicture</a>.
-		This is my blog and archive.
+		This is my archive. <a href="http://mikevanrossum.nl/">∞</a>
 	</p>

@@ -1,6 +1,6 @@
 # custom
 RewriteEngine on
-RewriteBase /mvr.me/ 
+# RewriteBase /mvr.me/ 
 
 # makes sure every CMS request does end with a /
 # this is taken from: http://html5boilerplate.com/docs/Proper-usage-of-trailing-slash-redirects/

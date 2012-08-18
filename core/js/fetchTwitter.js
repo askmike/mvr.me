@@ -57,11 +57,11 @@ Twitter.prototype.fetch = function( cb ) {
 					});
 				}
 			} else {
-				l('probably rate limited at ' + new Date() );
 				self.emit('done');
 			}
 		} else {
 			l('probably rate limited at ' + new Date() );
+			self.emit('done');
 		}
 	});
 	

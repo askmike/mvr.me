@@ -283,7 +283,7 @@ Twitter.prototype.storeTweets = function() {
 	var self = this
 	,	tweets = this.tweets
 	,	len = tweets.length
-	,	insert = 'INSERT INTO  `mvr.me`.`post` (`type`,`timestamp`,`url`,`title`,`titleURL`,`content`,`contentHTML`,`source`) VALUES ';
+	,	insert = 'INSERT INTO `post` (`type`,`timestamp`,`url`,`title`,`titleURL`,`content`,`contentHTML`,`source`) VALUES ';
 	
 	while( len-- ) {
 		

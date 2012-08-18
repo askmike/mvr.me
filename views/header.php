@@ -18,8 +18,13 @@
 	<title><?= $title . ' &#124; mvr.me' ?></title>
 <?php } else { ?>
 	<title>mvr.me</title>
-<?php } ?>
+<?php } 
+
+	  if( !empty($excerpt) ) { ?>
 	<meta name="description" content="<?= $excerpt ?>">
+<?php } else { ?>
+	<meta name="description" content="MVR.ME is the digital archive of all screams and rages from Mike van Rossum echoing through the internet.">
+<?php } ?>
 	<meta name="viewport" content="width=510">
 	<link rel="stylesheet" href="<?= SITE ?>css/style.css">
 </head>

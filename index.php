@@ -28,6 +28,8 @@ ini_set( 'session.use_trans_sid', 0 );
 ini_set( 'session.use_only_cookies', 1 );
 session_start();
 
+define( 'INFINITY', '∞' );
+
 // start it up
 $requestHandler->route();
 

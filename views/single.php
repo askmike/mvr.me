@@ -4,7 +4,7 @@
 	<h2><?= $title ?></h2>
 <?php } } ?>
 
-<?= $content ?>
+<?= $contentHTML ?>
 
 <!-- <p>In het kader van het tentamen voor het vak &#8216;Design for interaction: Models &amp; processes&#8217; (uit de V1) heb ik een</p> -->
 <!-- <p>Strange meeting - met @Chelsey</p>

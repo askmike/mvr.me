@@ -9,13 +9,15 @@ class ListController extends Controller {
 		
 		$this->model = new ListModel();
 		
+		$postsPerPage = 40;
+		
 		if( isset($page) ) { 
-			$this->data = $this->model->getType( $page, 0, 25 );
+			$this->data = $this->model->getType( $page, 0, $postsPerPage );
 			$this->data['title'] = $page;
 			
 		} else {
 			
-			$this->data = $this->model->getPosts( 0, 25 );
+			$this->data = $this->model->getPosts( 0, $postsPerPage );
 			
 		}
 		

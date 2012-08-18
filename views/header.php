@@ -41,7 +41,7 @@
 		<img id='logo' width='100' height='100' src='<?= SITE ?>img/logo.png' />
 	</a>
 	<p id='about'>
-		Hello, I am Mike van Rossum. I'm from Amsterdam and I'm currently studying 
+		Hello, I am Mike van Rossum <a href="http://mikevanrossum.nl/"><?= INFINITY ?></a>. I'm from Amsterdam and I'm currently studying 
 		<a href='http://www.cmd-amsterdam.nl/english/'>CMD</a> where I focus on coding. I also work at <a href='http://mobypicture.com/'>Mobypicture</a>.
-		This is my archive. <a href="http://mikevanrossum.nl/"><?= INFINITY ?></a>
+		This is my archive. 
 	</p>

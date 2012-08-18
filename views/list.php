@@ -18,12 +18,12 @@
 						<?= $item[ 'title' ] ?>
 					</a>
 				</h2>
-				<p class='body'>
+				<div class='body'>
 			<?php } else { ?>
-				<p class='body titleless'>
+				<div class='body titleless'>
 			<?php } ?>
 					<?= $item[ 'excerpt' ] ?>
-				</p>
+				</div>
 			</li>
 	<?php } } } ?>
 </ul>

@@ -331,7 +331,7 @@ ul#content h2 {
 	padding-left:100px;
 }
 
-#content > .dateless p {
+#content > .dateless .body {
 	margin-left:0;
 }
 

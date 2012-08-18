@@ -51,7 +51,7 @@ class ListController extends Controller {
 		
 		foreach ( $this->data as &$item ) {
 			if( is_array( $item ) ) {
-			    $item[ 'excerpt' ] .= ' <a href="' . SITE . $item[ 'url' ] . '">' . $types[ $item[ 'type' ] ] . '</a>';
+			    $item[ 'excerpt' ] .= ' <a href="' . SITE . $item[ 'url' ] . '">' . $types[ $item[ 'type' ] ] . '</a></p>';
 			}
 		}
 	}

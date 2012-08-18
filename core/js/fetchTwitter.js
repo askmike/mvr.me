@@ -274,7 +274,7 @@ Twitter.prototype.addURLToTweet = (function( tweet ) {
 Twitter.prototype.finishUp = function( tweet ) {
 	
 	tweet = this.getSource( tweet );
-	tweet.contentHTML = this.twitterify( tweet.tweet.text );
+	tweet.contentHTML = '<p>' + this.twitterify( tweet.tweet.text ) + '</p>';
 	tweet = this.addURLToTweet( tweet );
 	
 	this.tweets.push( tweet );

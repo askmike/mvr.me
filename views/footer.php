@@ -14,7 +14,7 @@
 	<a class='email' href='https://www.google.nl/search?q=this+is+why+I+need+a+new+browser'>contact me</a>. <!-- js not working -->
 </p>
 </footer>
-<script src="<?= SITE ?>js/vendor/script.js"></script>
+<script src="<?= SITE ?>js/vendor/script.min.js"></script>
 <?php if( !empty( $script ) ) { ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?= SITE ?>js/vendor/jquery-1.7.2.min.js"><\/script>')</script>

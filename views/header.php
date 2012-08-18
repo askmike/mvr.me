@@ -25,7 +25,7 @@
 <?php } else { ?>
 	<meta name="description" content="MVR.ME is the digital archive of all screams and rages from Mike van Rossum echoing through the internet.">
 <?php } ?>
-	<meta name="viewport" content="width=510">
+	<meta name="viewport" content="width=520">
 	<link rel="stylesheet" href="<?= SITE ?>css/style.css">
 </head>
 <body class='<?= $pageType ?>'>

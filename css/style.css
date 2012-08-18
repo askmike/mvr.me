@@ -231,6 +231,13 @@ html {
 	text-align:justify;
 }
 
+@media only screen and (max-device-width: 480px) {
+	html {
+		font-size: 1.4em;
+		text-align:left;
+	}
+}
+
 body {
 	width:500px;
 	margin:auto;
@@ -271,10 +278,10 @@ a {
 }
 
 #about {
-	margin-top:50px;
-	height:90px;
+	margin-top:4em;
+	height:7em;
 	border-bottom:1px solid #cbcbcb;
-	margin-bottom:70px;
+	margin-bottom:6em;
 }
 
 /*
@@ -327,6 +334,14 @@ ul#content h2 {
 	margin-left:0;
 }
 
+#content h2 {
+	margin-left: 100px;
+}
+
+#content > .dateless h2 {
+	margin-left:0;
+}
+
 #content > .dateless {
 	padding-left:100px;
 }
@@ -345,7 +360,7 @@ pre {
 
 #footer {
 	border-top:1px solid #cbcbcb;
-	margin: 70px 0 10px;
+	margin: 5em 0 10px;
 }
 
 code {

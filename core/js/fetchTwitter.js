@@ -164,7 +164,7 @@ Twitter.prototype.getTitle = function( tweet ) {
 	,	urls = body.match(/(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/gi)
 	,	self = this;
 	
-	if( urls.length === 1 ) {
+	if( urls && urls.length === 1 ) {
 		
 		request(urls[ 0 ], function (error, response, r) {
 			if (!error && response.statusCode == 200) {

@@ -318,6 +318,10 @@ h2 {
 	float:left;
 }
 
+.withdate p:first-child {
+	margin-top:0;
+}
+
 ul#content h2 {
 	margin-top:0;
 }

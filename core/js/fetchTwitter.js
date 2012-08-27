@@ -276,7 +276,6 @@ Twitter.prototype.finishUp = function( tweet ) {
 	tweet = this.getSource( tweet );
 	tweet.contentHTML = '<p>' + this.twitterify( tweet.tweet.text );
 	tweet = this.addURLToTweet( tweet );
-	
 	this.tweets.push( tweet );
 	this.checkIfDone();
 }
@@ -286,7 +285,7 @@ Twitter.prototype.storeTweets = function() {
 	var self = this
 	,	tweets = this.tweets
 	,	len = tweets.length
-	,	insert = 'INSERT INTO `post` (`type`,`timestamp`,`url`,`title`,`titleURL`,`content`,`contentHTML`,`source`) VALUES ';
+	,	insert = 'INSERT INTO `post` (`type`,`timestamp`,`url`,`title`,`titleURL`,`content`,`contentHTML`,`source`,`fid`) VALUES ';
 	
 	while( len-- ) {
 		
@@ -295,7 +294,7 @@ Twitter.prototype.storeTweets = function() {
 		insert += '("tweet","' + tweet.timestamp;
 		insert += '","' + tweet.url + '","' + tweet.title; 
 		insert += '","' + tweet.titleURL + '","' + tweet.tweet.text;
-		insert += '","' + tweet.contentHTML + '","' + tweet.source;
+		insert += '","' + tweet.contentHTML + '","' + tweet.source + '","' + tweet.tweet.id_str;
 		insert += '"),';
 
 	}

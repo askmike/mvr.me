@@ -19,6 +19,8 @@
 					</a>
 				</h2>
 				<div class='body'>
+			<?php } else if( isset( $item[ 'month' ] ) ) { ?>
+				<div class='body titleless withdate'>
 			<?php } else { ?>
 				<div class='body titleless'>
 			<?php } ?>

@@ -4,14 +4,14 @@
 		Posted on <?= $date ?>. 
 		<?php if( !empty( $source ) ) { ?> 
 			Source: <a href='http://twitter.com/<?= $sourceAccount ?>'><?= $source ?></a>.
+		<?php } elseif( $type === 'tweet' && $fid !== '0' ) { ?>
+			Posted on <a href='http://twitter.com/mikevanrossum/status/<?= $fid ?>'>Twitter</a>.
 		<?php } ?>
 	</p>
-<?php } elseif($pageType === 'list') { ?>
-	
-<?php } ?>	
+<?php } ?>
 <p>
 	Copyleft, 
-	<a class='email' href='https://www.google.nl/search?q=this+is+why+I+need+a+new+browser'>contact me</a>. <!-- js not working -->
+	<a class='email' href='#'>contact me</a>.
 </p>
 </footer>
 <script src="<?= SITE ?>js/vendor/script.min.js"></script>

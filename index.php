@@ -12,6 +12,13 @@ define( 'ABSOLUTE_BASE', $_SERVER['DOCUMENT_ROOT'] . PHPBASE );
 define( 'DOMAIN', $_SERVER['HTTPS'] ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'] );
 define( 'SITE', DOMAIN . BASE );
 
+// force trailing slash
+if( substr($_GET['r'], -1) !== '/' && strlen($_GET['r']) !== 0) {
+	header('HTTP/1.1 301 Moved Permanently');
+  	header('Location: ' . SITE . $_GET['r'] . '/');
+  	die();
+}
+
 require 'core/lazyloading.php';
 
 date_default_timezone_set( 'Europe/Amsterdam' );

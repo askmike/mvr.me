@@ -228,7 +228,7 @@ html {
 	background-color:#84888b;
 	color:white;
 	line-height:1.5em;
-	text-align:justify;
+	/*text-align:justify;*/
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -375,15 +375,18 @@ code {
 
 blockquote {
 	border-left: 2px solid #cbcbcb;
-	margin: 4px 0;
+	margin: 0 0 .5em 0;
 	padding: 3px 0 3px 10px;
-	text-align: justify;
 	line-height: 1.4em;
 	font-style: italic;
 }
 
 blockquote p {
-	margin:.2em 0;
+	margin:0 0 1em 0;
+}
+
+blockquote p:last-child {
+	margin:0;
 }
 
 #editPost {

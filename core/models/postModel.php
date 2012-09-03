@@ -29,7 +29,7 @@ class PostModel extends DBModel {
 		foreach( $input as $k => $v ) {
 			
 			if( !in_array( $k, $blacklist ) ) {
-				$str .= $k . ' = "' . $v . '", ';
+				$str .= $k . ' = "' . $this->connection->real_escape_string( $v ) . '", ';
 			}
 		}
 		

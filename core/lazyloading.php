@@ -21,6 +21,7 @@ function lazyload( $class ) {
 		'core/controllers/',
 		'core/models/',
 		'core/',
+		// 'core/libs',
 		// MODELS, 
 		// CONTROLLERS,
 		// CONTROLLERS . 'admin/',

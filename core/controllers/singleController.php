@@ -13,6 +13,7 @@ class SingleController extends Controller {
 		
 		$this->data = $this->model->getPost( Registery::get( 'fullRequest' ) );
 		$this->getDateFromItem();
+		$this->markdownPost();
 		
 		$type = $this->data['type'];
 		
@@ -32,7 +33,6 @@ class SingleController extends Controller {
 				
 				break;
 			default:
-				// $this->data[ 'pageType' ] = $type;
 				$this->data[ 'excerpt' ] = $this->data['title'] . '. ' . $this->data['content'];
 				$this->view( 'single' );
 			

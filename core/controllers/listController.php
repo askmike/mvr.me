@@ -27,31 +27,28 @@ class ListController extends Controller {
 		}
 		
 		$this->addExcerpts();
-		
 		$this->data['pageType'] = 'list'; // list or post
-		
 		$this->addMonthToItems();
-		
 		$this->prepareExcerpts();
+		$this->markdownList();
 		
 		$this->view( 'list' );
 	}
 	
 	function prepareExcerpts() {
-		
+
 		$types = array(
 			'blog' => '∞',
 			'post' => '∞',
 			'tweet' => '∞',
 			'portfolio' => '⊛',
 			'projects' => '⚛',
-			// 'moby' => '⧉',
 			'image' => '⧉'
 		);
 		
 		foreach ( $this->data as &$item ) {
 			if( is_array( $item ) ) {
-			    $item[ 'excerpt' ] .= ' <a href="' . SITE . $item[ 'url' ] . '">' . $types[ $item[ 'type' ] ] . '</a></p>';
+			    $item[ 'excerpt' ] .= "\n" . ' <a href="' . SITE . $item[ 'url' ] . '">' . $types[ $item[ 'type' ] ] . '</a>';
 			}
 		}
 	}

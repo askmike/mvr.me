@@ -28,7 +28,6 @@ $request =  $_GET['r'];
 $requestHandler = new Request;
 $requestHandler->store( $request, $requestHandler->parse( $request ));
 
-define( 'LIBS', SBASE . 'libs/' );
 define( 'IMG', BASE . 'static/img/' );
 
 ini_set( 'session.use_trans_sid', 0 );

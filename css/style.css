@@ -375,7 +375,7 @@ code {
 
 blockquote {
 	border-left: 2px solid #cbcbcb;
-	margin: 0 0 .5em 0;
+	margin: .4em 0 .5em 0;
 	padding: 3px 0 3px 10px;
 	line-height: 1.4em;
 	font-style: italic;

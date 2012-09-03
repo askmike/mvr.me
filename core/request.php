@@ -33,6 +33,11 @@ class Request {
 			
 			return;
 		}
+		// print_r($request);
+		if( $request[ sizeof( $request ) - 2 ] === 'e' ) {
+			new adminController('post');
+			return;
+		}
 		
 		switch ( sizeof($request) ) {
 			case 1:
@@ -65,13 +70,12 @@ class Request {
 			case 3: // portfolio or project item
 			case 4: // single item
 			case 5: // blog post
-				
 				new SingleController();
 				
 				break;
-				
+			
 			default:
-				
+				// echo 'a';
 				// 404
 				
 				new ErrorController(404);

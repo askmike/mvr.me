@@ -12,8 +12,7 @@ class AdminController extends Controller {
 		
 		$this->logIn();
 		
-		$request = Registery::get( 'request' );
-		
+		$request = Registery::get( 'request' );;
 		if( sizeof( $request ) === 2 ) {
 			
 			$this->redirect('admin/list');
@@ -66,7 +65,8 @@ class AdminController extends Controller {
 		$this->addEditLinks();
 		$this->getDateFromItems();
 		$this->addExcerpts();
-		
+		$this->markdownList();
+
 		$this->view('admin/list');
 		
 	}
@@ -78,18 +78,22 @@ class AdminController extends Controller {
 	}
 	
 	function editPost( $r ) {
-		
+		// print_R($r);
 		$this->model = new PostModel;
 		
 		if( isset( $_POST['date'] ) ) {
 			$this->updatePost( $_POST );
 			return;
 		}
-		
-		// remove 'admin/'
-		array_shift( $r );
-		
-		$this->data = $this->model->getPost( implode( '/', $r ) );
+
+		if( $r[0] === 'admin' ) // remove 'admin/'
+			array_shift( $r );
+		else {// remove '.../admin'
+			array_pop( $r );
+			array_pop( $r );
+		}
+
+		$this->data = $this->model->getPost( implode( '/', $r ) . '/' );
 		
 		if( empty( $this->data ) ) {
 			$this->error(404);
@@ -105,7 +109,6 @@ class AdminController extends Controller {
 	}
 	
 	function escapeForInput() {
-		
 		foreach( $this->data as &$var ) {
 			if( is_string( $var ) ) {
 				$var = htmlspecialchars( $var, ENT_QUOTES );
@@ -114,13 +117,8 @@ class AdminController extends Controller {
 	}
 	
 	function updatePost( $input ) {
-		
-		// print_r($input);
-		
 		$this->model->updatePost( $input );
-		
-		$this->redirect('admin/list');
-		
+		$this->redirect( $input[ 'url' ] );
 	}
 	
 	

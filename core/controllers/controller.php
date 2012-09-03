@@ -81,7 +81,7 @@ class Controller {
 		}
 		
 	}
-	
+
 	function getDate( $ts ) {
 
 		// if its this year, skip the year
@@ -101,10 +101,30 @@ class Controller {
 		return date('F &#96;y', $ts);
 	}
 	
-	function redirect( $relativeUrl ) {
+	function redirect( $url ) {
 		
-		header('Location: ' . SITE . $relativeUrl );
-		
+		// not really safe test, could be improved with regex
+		if( substr( $url, 0, 4 ) !== 'http' ) {
+			$url = SITE . $url;
+		}
+
+		header('Location: ' . $url );
+	}
+
+	function markdownList() {
+		// print_r($this->data);
+		foreach( $this->data as &$item ) {
+			$item[ 'excerpt' ] = $this->markdown( $item['excerpt'] );
+		}
+	}
+
+	function markdownPost() {
+		$this->data[ 'contentHTML' ] = $this->markdown( $this->data[ 'contentHTML' ] );
+	}
+
+	function markdown( $text ) {
+		require_once ABSOLUTE_BASE . 'core/libs/markdown.php';
+		return Markdown( $text );
 	}
 	
 }

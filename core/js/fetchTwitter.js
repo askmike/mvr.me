@@ -167,7 +167,7 @@ var l = console.log
     cb( null, post );
 }
 ,   addHTML = function( post, cb ) {
-    post.contentHTML = '<p>' + twitterify( post.tweet.text );
+    post.contentHTML = twitterify( post.tweet.text );
     cb( null, post );
 }
 ,   addDate = function( post, cb ) {

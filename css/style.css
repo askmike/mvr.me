@@ -428,6 +428,13 @@ blockquote p:last-child {
 	margin-bottom:15px;
 }
 
+#search {
+	border-bottom: 1px solid #CBCBCB;
+	padding-bottom: 6em;
+	margin-bottom: 2em;
+	overflow:hidden;
+}
+
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
    ========================================================================== */

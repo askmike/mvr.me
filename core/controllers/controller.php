@@ -16,19 +16,17 @@ class Controller {
 	}
 	
 	function error( $e ) {
-		$e = new ErrorController($e);
+		$e = new ErrorController( $e );
 	}
 	
 	function view( $view ) {
-		
 		$data = $this->data;
 		
-		if( is_array( $data ) ) extract($data);
+		if( is_array( $data ) ) extract( $data );
 		
 		require 'views/header.php';
 		require 'views/' . $view . '.php';
 		require 'views/footer.php';
-		
 	}
 	
 	function addMonthToItems() {
@@ -37,8 +35,7 @@ class Controller {
 			$len = sizeof( $this->data );
 			$temp = array();
 			
-			for( $i = 0; $i < $len ; $i++ ){
-				
+			for( $i = 0; $i < $len ; $i++ ) {
 				$ts = $this->data[ $i ][ 'timestamp' ];
 				$month = $this->getMonth( $ts );
 				
@@ -46,30 +43,25 @@ class Controller {
 					$temp[] = $month;
 					$this->data[ $i ][ 'month' ] = $month;
 				}
-				
 			}
 		}
 	}
 
 	function addExcerpts() {
-		foreach( $this->data as &$post ) {
-
-			// small posts don't have dedicated excerpts
-			if( empty( $post[ 'excerpt' ] ) ) {
-				$post[ 'excerpt' ] = $post[ 'contentHTML' ];
+		if( is_array( $this->data ) ) {
+			foreach( $this->data as &$post ) {
+				// small posts don't have dedicated excerpts
+				if( empty( $post[ 'excerpt' ] ) ) {
+					$post[ 'excerpt' ] = $post[ 'contentHTML' ];
+				}
 			}
 		}
 	}
 	
 	function getDateFromItem() {
-		
 		if( is_array( $this->data ) ) {
 			$this->data['date'] = $this->getDate( $this->data['timestamp'] );
 		}
-		
-		// print_r($item);
-		
-		// return $item;
 	}
 	
 	function getDateFromItems() {

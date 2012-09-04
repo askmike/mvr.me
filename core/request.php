@@ -10,11 +10,16 @@ class Request {
 		Registery::set( 'fullRequest', $s );
 		Registery::set( 'request', $a );
 	}
-	
+
 	function route() {
-		
 		$request = Registery::get( 'request' );
-		
+
+		//search
+		if( array_key_exists( 's', $_GET ) || $request[0] === 's' ) {
+			new ListController( true );
+			return;
+		}
+
 		//backend
 		if( $request[0] === 'admin' ) {
 			
@@ -33,7 +38,6 @@ class Request {
 			
 			return;
 		}
-		// print_r($request);
 		if( $request[ sizeof( $request ) - 2 ] === 'e' ) {
 			new adminController('post');
 			return;
@@ -61,7 +65,7 @@ class Request {
 						break;
 					default:
 					
-						new shortLinkController(); // shortlink
+						new errorController( 404 ); // shortlink
 					
 				}
 				

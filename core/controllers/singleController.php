@@ -12,6 +12,11 @@ class SingleController extends Controller {
 		$this->model = new PostModel;
 		
 		$this->data = $this->model->getPost( Registery::get( 'fullRequest' ) );
+		if( !$this->data ) {
+			$this->error( 404 );
+			return;
+		}
+
 		$this->getDateFromItem();
 		$this->markdownPost();
 		
@@ -37,7 +42,6 @@ class SingleController extends Controller {
 				$this->view( 'single' );
 			
 		}
-		
 		
 	}
 

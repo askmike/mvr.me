@@ -3,15 +3,17 @@
 class ListController extends Controller {
     public $model;
     
-    function __construct( $search = null ) {
+    function __construct( $page = null, $search = null ) {
         
         parent::__construct();
         
         $this->model = new ListModel();
         
         $postsPerPage = 40;
-
-        if( $search && array_key_exists( 's', $_GET ) ) {
+        if( !empty($page) ) {
+            $this->data = $this->model->getType( $page, 0, $postsPerPage );
+            $this->data['title'] = $page;
+        } else if( $search && array_key_exists( 's', $_GET ) ) {
             $this->data = $this->model->getSearch( $_GET[ 's' ] );
         } else {
             $this->data = $this->model->getPosts( 0, $postsPerPage );
@@ -27,7 +29,7 @@ class ListController extends Controller {
         $this->addMonthToItems();
         $this->prepareExcerpts();
         $this->markdownList();
-        
+
         if( $search ) {
             $this->viewSearch( 'list' );
         } else

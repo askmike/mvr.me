@@ -4,7 +4,7 @@
 			Insert coin(s)
 
 		<Push any button to start>
-
+	
 -->
 <?php if( !empty($language) ) { ?>
 <html lang="<?= $language ?>">
@@ -15,11 +15,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php if( !empty($title) ) { ?>
-	<title><?= $title . ' &#124; mvr.me' ?></title>
+	<title><?= $title ?>&#124; mvr.me</title>
 <?php } else { ?>
 	<title>mvr.me</title>
 <?php } 
-
 	  if( !empty($excerpt) ) { ?>
 	<meta name="description" content="<?= $excerpt ?>">
 <?php } else { ?>

@@ -23,7 +23,7 @@ require 'core/lazyloading.php';
 
 date_default_timezone_set( 'Europe/Amsterdam' );
 
-$request =  $_GET['r'];
+$request = $_GET['r'];
 
 $requestHandler = new Request;
 $requestHandler->store( $request, $requestHandler->parse( $request ));
@@ -41,5 +41,3 @@ $requestHandler->route();
 
 // break it down
 Database::get()->kill();
-
-?>

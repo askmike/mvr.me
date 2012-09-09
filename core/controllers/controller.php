@@ -104,9 +104,10 @@ class Controller {
 	}
 
 	function markdownList() {
-		// print_r($this->data);
 		foreach( $this->data as &$item ) {
-			$item[ 'excerpt' ] = $this->markdown( $item['excerpt'] );
+			if( is_array( $item ) ) {
+				$item[ 'excerpt' ] = $this->markdown( $item['excerpt'] );
+			}
 		}
 	}
 

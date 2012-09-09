@@ -12,11 +12,14 @@ class Request {
 	}
 
 	function route() {
+
 		$request = Registery::get( 'request' );
+
+		// echo $request[0];
 
 		//search
 		if( array_key_exists( 's', $_GET ) || $request[0] === 's' ) {
-			new ListController( true );
+			new ListController( false, true );
 			return;
 		}
 
@@ -42,7 +45,7 @@ class Request {
 			new adminController('post');
 			return;
 		}
-		
+
 		switch ( sizeof($request) ) {
 			case 1:
 			
@@ -59,7 +62,7 @@ class Request {
 					case 'blog':
 					case 'portfolio':
 					case 'projects':
-						
+
 						new ListController( $request[0] ); // page
 						
 						break;

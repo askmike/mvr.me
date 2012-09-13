@@ -136,11 +136,11 @@ var l = console.log
 ,   addSource = function( post, cb ) {
     var sourceTrigger = '/via '
     ,   body = post.tweet.text
-    ,   hasTrigger = body.indexOf( sourceTrigger ) + 1;
+    ,   triggerPos = body.indexOf( sourceTrigger );
     
-    if( hasTrigger ) {
-        post.source = body.substr( pos + sourceTrigger.length );
-        post.tweet.text = body.substr( 0, pos );
+    if( triggerPos + 1 ) {
+        post.source = body.substr( triggerPos + sourceTrigger.length );
+        post.tweet.text = body.substr( 0, triggerPos );
     } 
     
     cb( null, post );

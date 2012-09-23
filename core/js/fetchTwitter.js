@@ -96,7 +96,7 @@ var l = console.log
     });
 }
 ,   extractTitle = function( post, html, response, cb) {
-    if(!html) {
+    if(typeof html !== 'string') {
         cb( null, post, false, response );
         return;
     }

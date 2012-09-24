@@ -96,8 +96,9 @@ var l = console.log
     });
 }
 ,   extractTitle = function( post, html, response, cb) {
-    if(typeof html !== 'string') {
-        cb( null, post, false, response );
+    if( typeof html !== 'string' ) {
+        cb = html;
+        cb( null, post );
         return;
     }
     // first remove cdata and comments, safer way to regex html
@@ -126,10 +127,12 @@ var l = console.log
     cb( null, post, false, response );
 }
 ,   addTitle = function( post, title, response, cb ) {
-    if( title ) {
+    if( typeof title === 'string' ) {
         post.tweet.text = post.tweet.text.replace( /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i, '' );
         post.title = title;
         post.titleURL = response.request.uri.href;
+    } else {
+        cb = title;
     }
     cb( null, post );
 }

@@ -1,3 +1,8 @@
+// TODO:
+// - rewrite
+// - ...
+// - profit!
+
 var l = console.log
 ,   sql = require( '/config/mvr.me/sql.js' )
 ,   request = require( 'request' )
@@ -6,9 +11,8 @@ var l = console.log
 //          helper functions
 ,   trimFromChar = function( str, character ) {
     var pos = str.indexOf( character );
-    if( pos + 1 ) {
+    if( pos + 1 )
         str = str.substr( 0, pos );
-    }
     
     return str;
 }
@@ -55,13 +59,13 @@ var l = console.log
 }
 ,   checkIfTweetIsStored = function( post, cb ) {
     sql.query('SELECT * FROM post WHERE fid = ?', [ post.tweet.id_str ], function( err, rows, fields ) {
-        if (err) throw err;
+        if (err) 
+            throw err;
 
-        if( rows.length ) {
+        if( rows.length )
             cb( 'tweet already exists' );
-        } else {
+        else
             cb( null, post );
-        }
     });
 }
 ,   checkTweetForHash = function( post, cb ) {
@@ -71,19 +75,17 @@ var l = console.log
     if( containsHash ) { 
         post.tweet.text = body.replace( /\ #mvr/, '' );
         cb( null, post );
-    } else {
+    } else
         cb( 'no hash' );
-    }   
 }
 ,   checkTweetForURL = function( post, cb ) {
     var body = post.tweet.text
     ,   urls = body.match(/(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/gi);
 
-    if( urls && urls.length === 1) {
+    if( urls && urls.length === 1)
         cb( null, post, urls[0] );
-    } else {
+    else
         cb( null, post, false );
-    }
 }
 ,   followURL = function( post, url, cb ) {
     if( !url ) {
@@ -102,7 +104,7 @@ var l = console.log
         return;
     }
     // first remove cdata and comments, safer way to regex html
-    var limit = 75
+    var limit = 100
     ,   str = (html.replace( /<!\[CDATA\[(.+?)\]\]>/g
     , function (_match, body) {
         return body.replace(/&/g, '&amp;')
@@ -116,23 +118,19 @@ var l = console.log
     
     str = trimFromChar( str, '|' );
     
-    if( str.length > limit ) {
+    if( str.length > limit )
         str = trimFromChar( str, ':' );
-    }
     
-    if( str.length < limit ) {
+    if( str.length < limit )
         cb( null, post, str, response );
-        return;
-    }
-    cb( null, post, false, response );
+    else
+        cb( null, post, false, response );
 }
 ,   addTitle = function( post, title, response, cb ) {
     if( typeof title === 'string' ) {
         post.tweet.text = post.tweet.text.replace( /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i, '' );
         post.title = title;
         post.titleURL = response.request.uri.href;
-    } else {
-        cb = title;
     }
     cb( null, post );
 }
@@ -161,9 +159,8 @@ var l = console.log
     ,   year = date.getFullYear()
     ,   month = date.getMonth() + 1;
     
-    if( month < 10 ) {
+    if( month < 10 )
         month = '0' + month;
-    }
     
     post.url = year + '/' + month + '/' + stringToSlug( words ) + '/';
     
@@ -227,9 +224,8 @@ var l = console.log
         if ( !error && response.statusCode == 200 ) {
             var tweets = JSON.parse( r );
             tweets.forEach( insert );
-        } else {
+        } else
             l('probably rate limited at ' + new Date() );
-        }
     });
 }
 

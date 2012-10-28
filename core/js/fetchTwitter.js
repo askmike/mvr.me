@@ -89,7 +89,7 @@ var l = console.log
 }
 ,   followURL = function( post, url, cb ) {
     if( !url ) {
-        cb( null, post );
+        cb( null, post, false, false );
         return;
     }
 
@@ -99,8 +99,7 @@ var l = console.log
 }
 ,   extractTitle = function( post, html, response, cb) {
     if( typeof html !== 'string' ) {
-        cb = html;
-        cb( null, post );
+        cb( null, post, false, false );
         return;
     }
     // first remove cdata and comments, safer way to regex html
@@ -117,7 +116,7 @@ var l = console.log
     .join(' ');
     
     str = trimFromChar( str, '|' );
-    
+
     if( str.length > limit )
         str = trimFromChar( str, ':' );
     

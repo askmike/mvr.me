@@ -31,7 +31,7 @@
 	<nav>
 		<ul id='nav'>
 			<li><a href='<?= SITE ?>'>Home</a></li>
-			<li><a href='<?= SITE . 'portfolio/' ?>'>Portfolio</a></li>
+			<li><a href='lab.askmike.org'>Portfolio</a></li>
 			<li><a href='<?= SITE . 'projects/' ?>'>Projects</a></li>
 			<li><a href='<?= SITE . 'blog/' ?>'>Blog</a></li>
 		</ul>
